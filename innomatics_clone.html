@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,header{
+            margin: 0px;
+            padding: 0px;
+
+        }
+        .main{
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            background-color: red;
+            margin-top: 0;
+            margin-left: 0;
+            height: 50px;
+        }
+        .main1{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 15px;
+
+        }
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-c{
+            display: none;
+            position: absolute;
+            background: white;
+            color: black;
+            min-width: 150px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 10;
+
+        }
+        .dropdown-c a{
+            display: block;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+        }
+        .dropdown-c a:hover {
+            background: red;
+        }
+        .dropdown:hover .dropdown-c {
+            display: block;
+        }
+        .a{
+            margin-left: 30px;
+        }
+        .b{
+            margin-left: 80px;
+            
+        }
+        .c{
+            margin-left: 80px;
+
+        }
+        .d{
+            margin-left: 80px;
+
+        }
+        .b1,.c1,.d1{
+            border-color: white;
+            border: 2px solid;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            padding: 6px;
+            font-weight: bold;
+            font-size: large;
+        }
+        .a1{
+            color: white;
+            font-weight: bold;
+            font-size: large;
+        }
+        .logo{
+            margin-left: 70px;
+            width: 350px;
+        }
+        .home{
+            margin-left: 90px;
+            font-weight: bold;
+            font-size: large;
+        }
+        .course{
+            margin-left: 40px;
+            font-weight: bold;
+            font-size: large;
+        }
+        .it{
+            margin-left: 40px;
+            font-weight: bold;
+            font-size: large;
+        }
+        .internship{
+            margin-left: 40px;
+            font-weight: bold;
+            font-size: large;
+        }
+        .about{
+            margin-left: 40px;
+            font-weight: bold;
+            font-size: large;
+        }
+        .event{
+            margin-left: 40px;
+            font-weight: bold;
+            font-size: large;
+        }
+        .pay{
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            margin-left: 80px;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: large;
+
+        }
+        .slider{
+            width: 80%;
+            overflow: hidden;
+            margin: auto;
+            border-radius: 10px;
+            position: relative;
+        }
+        .slides{
+            display: flex;
+            /* transition: transform 0.5s ease-in-out;  */
+            width: 100%;
+            animation: autoSlide 21s infinite steps(1);
+             
+        }
+        @keyframes autoSlide {
+            0% { transform: translateX(0%); }
+            14.285% { transform: translateX(-100%); } 
+            28.571% { transform: translateX(-200%); }
+            42.857% { transform: translateX(-300%); }
+            57.143% { transform: translateX(-400%); }
+            71.429% { transform: translateX(-500%); }
+            85.715% { transform: translateX(-600%); }
+            100% { transform: translateX(0%); } /* Loop back to first image */
+        }
+
+         /* @keyframes slide {
+            0% { transform: translateX(0%); }
+            14.285% { transform: translateX(0%); } 
+            14.286% { transform: translateX(-100%); }
+            28.571% { transform: translateX(-100%); }
+            28.572% { transform: translateX(-200%); }
+            42.857% { transform: translateX(-200%); }
+            42.858% { transform: translateX(-300%); }
+            57.143% { transform: translateX(-300%); }
+            57.144% { transform: translateX(-400%); }
+            71.429% { transform: translateX(-400%); }
+            71.430% { transform: translateX(-500%); }
+            85.715% { transform: translateX(-500%); }
+            85.716% { transform: translateX(-600%); }
+            100% { transform: translateX(-600%); } 
+        }  */
+        .slideimg{
+            min-width: 100%;
+        }
+        .slideimg img{
+            width: 100%;
+            border-radius: 10px;
+        }
+        input[type="radio"]{
+            display: none;
+        }
+        #slide1:checked ~ .slides { transform: translateX(0%); }
+        #slide2:checked ~ .slides { transform: translateX(-100%); }
+        #slide3:checked ~ .slides { transform: translateX(-200%); }
+        #slide4:checked ~ .slides { transform: translateX(-300%); }
+        #slide5:checked ~ .slides { transform: translateX(-400%); }
+        #slide6:checked ~ .slides { transform: translateX(-500%); }
+        #slide7:checked ~ .slides { transform: translateX(-600%); }
+        .nav-buttons{
+            position: absolute;
+            top: 90%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* transform: translateY(-50%); */
+        }
+        .nav-button{
+            background-color:gainsboro ;
+            color: white;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #slide1:checked ~ .nav-buttons label[for="slide1"],
+        #slide2:checked ~ .nav-buttons label[for="slide2"],
+        #slide3:checked ~ .nav-buttons label[for="slide3"],
+        #slide4:checked ~ .nav-buttons label[for="slide4"],
+        #slide5:checked ~ .nav-buttons label[for="slide5"],
+        #slide6:checked ~ .nav-buttons label[for="slide6"],
+        #slide7:checked ~ .nav-buttons label[for="slide7"] {
+            background-color: red;
+        }
+
+        
+        .content{
+            /* display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; */
+
+            max-width: 50%;
+            text-align: left;
+
+        }
+        .contentimg{
+            /* display: flex;
+            flex-direction: row;
+            flex-wrap: wrap; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            max-width: 100%;
+            margin: 40px;
+            padding: 40px;
+            flex-wrap: wrap; 
+            padding: 0px;
+        }
+        .contentimg button{
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: larger;
+        }
+        .imgcontent{
+            width: 45%;
+            margin-top: 0px;
+            margin-left: 40px;
+        }
+        .imgcontent h1{
+            font-size: xx-large;
+            pad: 0px;
+        }
+        /* .imgcontent img{
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        } */
+        .content h1{
+            margin: 5px 0;
+            font-size: 24px;
+            white-space: normal;
+
+        }
+        .content p{
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        .black{
+            color: black;
+            font-weight: bold;
+        }
+        .red{
+            color: red;
+            font-weight: bold;
+        }
+        .top{
+            display: flex;
+            padding: 10px;
+
+        }
+        .bottom{
+            display: flex;
+            padding: 10px;
+        }
+        .t1,.t2{
+            border: gainsboro solid 2px;
+            padding: 70px;
+            border-radius: 10px;
+            
+        }
+        .t1:hover{
+            border-bottom: red 3px solid;
+        }
+        .t2:hover{
+            border-bottom: red 3px solid;
+        }
+        .t3:hover{
+            border-bottom: red 3px solid;
+        }
+        .t4:hover{
+            border-bottom: red 3px solid;
+        }
+        .t3{
+            border: gainsboro solid 2px;
+            padding: 60px;
+            border-radius: 10px;
+        }
+        .t1,.t3{
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+        .t2{
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .symbol{
+            width: 80px;
+            height: 80px;
+            font-size: 80px;
+            margin-left: 40px;
+            color: red !important;
+            display: block;
+            /* align-items: center;
+            justify-content: center; */
+
+        }
+        .symhead{
+            font-size: large;
+            font-weight: bold;
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            text-align: center;
+            font-size: 22px;
+
+        }
+        .wwa{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .bblack{
+            background-color: black;
+        }
+        /* .train{
+            margin-top: 0px;
+        } */
+        .bblackdiv{
+            display: flex;
+
+         
+        }
+        .bb1,.bb2,.bb3{
+            border: white 2px solid;
+            margin-left: 50px;
+            border-radius: 15px;
+            margin-right: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .bbutton{
+            background-color:black;
+            border-color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+
+        }
+        .bb1 p,.bb2 p,.bb3 p{
+            margin: 25px;
+        }
+        .bb1 h1,.bb2 h1,.bb3 h1{
+            margin: 30px;
+        }
+        
+        .bimage{
+            margin-top: 0px;
+            margin-left: 0px;
+            object-fit: contain;
+
+        }
+        .Main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0px;
+            background-color:rgba(215, 212, 212, 0.901);
+
+        }
+        .small{
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            margin: 50px;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 0px;
+            background-color: white;
+        }
+        .people{
+            display: flex;
+            width: calc(150px * 8); 
+            animation: slide 20s infinite linear;
+        }
+        .people img {
+            width: 350px;
+            height: 350px;
+            margin: 0 10px;
+            border-radius: 10px;
+        }
+        .container{
+            width: 100%; 
+            overflow: hidden;
+            margin: auto;
+            border-radius: 10px;
+            position: relative;
+            
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-170px); }
+            50% { transform: translateX(-340px); }
+            75% { transform: translateX(-510px); }
+            100% { transform: translateX(0); }
+        }
+        .news{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+
+        }
+        .endmain{
+            background-color: black;
+            color: gainsboro;
+            font-weight: lighter;
+            display: flex;
+        }
+        .theend{
+            background-color: gray;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .end p{
+            text-align: center;
+            font-size: 20px;
+            line-height: 1.5;
+            text-align: justify;
+            color: gray;
+
+        }
+        .image{
+            width:100%
+
+        }
+        .end{
+            width:35%;
+            padding:50px;
+        }
+        .end1{
+            width:35%;
+            padding-top: 50px;
+            padding-left: 100px;
+        }
+        .end2{
+            width:30%;
+            padding-top: 40px;
+            padding-right: 200px;
+            padding-left: 0px;
+        }
+        .irl{
+            font-weight: bold;
+            font-size: 21px;
+            color: rgba(255, 255, 255, 0.601);
+        }
+        .purple{
+            color: rgb(231, 199, 225);
+            font-weight: bold;
+
+        }
+        .end1 a{
+            text-align: center;
+            font-size: 20px;
+            line-height: 1.5;
+            text-align: justify;
+            color:gray;
+        }
+        .end2 p{
+            text-align: center;
+            font-size: 20px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        .news1,.news2,.news3{
+            border: black 2px dotted;
+            padding: 0px;
+            margin-right: 20px;
+            margin-top: 0px;
+        }
+        
+        .blog,.stories,.re{
+            text-align: center;
+        }
+        .stories{
+            font-weight: lighter;
+        }
+        .color{
+            background-color: rgba(237, 236, 236, 0.901);
+        }
+        .review-c{
+            width: 50%;
+            margin: auto;
+            position: relative;
+            height: 600px;
+        }
+        .review{
+            border: black 2px solid;
+            width: 600px;
+            height: 350px;
+            margin-left:-20px ;
+            /* margin-right: 200px;
+            margin-top: 100px;
+            margin-bottom: 100px;  */
+            border-radius: 20px;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 40px;
+            line-height: 1.5;
+            display: none;
+        }
+        .review:first-of-type {
+            display: block;
+        }
+        .review:target {
+            display: block;
+        }
+        /* .review-details {
+            margin-top: 20px;
+            text-align: center;
+        } */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: -10px;
+        }
+        .nav-buttons a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            border: 2px solid black;
+            padding: 8px 15px;
+            border-radius: 10px;
+        }
+        .nav-buttons a:hover {
+            background-color: black;
+            color: white;
+        }
+        .reviewb{
+            padding: 12px;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            font-size: medium;
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            text-align: center;
+
+
+        }
+        .bc{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .expert{
+            background-color: black;
+            padding: 10px;
+            display: flex;
+
+
+        }
+        .expert h1{
+            color: white;
+            padding-right: 200px;
+            padding-left: 500px;
+            /* font-size: x-large;
+            font-weight: bolder; */
+
+        }
+        .expert button{
+            background-color: red;
+            border: white 2px solid;
+            border-radius: 10px;
+            padding: 0px;
+            width: 150px;
+            height: 50px; 
+            font-weight: bolder;
+            font-size: large;
+            margin-top: 12px;
+            margin-left: 100px;
+            cursor: pointer;
+        }
+        .bib{
+            border: black 2px solid;
+            border-radius:50px ;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding: 20px;
+            margin-left: 240px;
+            margin-right: 240px;
+            
+        }
+        .bib button{
+            background-color: black;
+            color: white;
+            border-radius: 30px;
+            padding: 15px;
+            margin-left: 30px;
+            padding-right: 30px;
+            padding-left: 30px;
+            font-weight: bold;
+            
+        }
+        #slide1:checked ~ .slides {
+            transform: translateX(0%);
+        }
+        #slide2:checked ~ .slides {
+            transform: translateX(-100%);
+        }
+        #slide3:checked ~ .slides {
+            transform: translateX(-200%);
+        }
+        #slide4:checked ~ .slides {
+            transform: translateX(-300%);
+        }
+        #slide5:checked ~ .slides {
+            transform: translateX(-400%);
+        }
+        #slide6:checked ~ .slides {
+            transform: translateX(-500%);
+        }
+        #slide7:checked ~ .slides {
+            transform: translateX(-600%);
+        }
+        .border{
+            border: black 2px solid;
+            border-radius: 10px;
+            padding: 0px;
+            height: 500px;
+            width: 650px;
+            
+        }
+        .border li{
+            font-size: 22px;
+            line-height: 1.5;
+        }
+        .mainb{
+            margin-bottom: 110px;
+            margin-right: 70px;
+        }
+        .mainbb{
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 150px;
+
+        }
+        .mainbb button{
+            margin-top: 60px;
+            background-color: white;
+            border: red 2px solid;
+            padding: 10px;
+            font-size: 20px;
+            border-radius:8px;
+            margin-bottom: 20px;
+        }
+        .if{
+            border-radius: 40px;
+        }
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main1 {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo {
+                width: 100%;
+                margin-left: 0;
+            }
+            .home, .course, .it, .internship, .about, .event {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .pay {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .contentimg {
+                flex-direction: column;
+                align-items: center;
+            }
+            .imgcontent {
+            width: 100%;
+            margin: 20px 0;
+        }
+        .t1, .t2, .t3 {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .bblackdiv {
+            flex-direction: column;
+            align-items: center;
+        }
+        .bb1, .bb2, .bb3 {
+            width: 90%;
+            margin: 10px 0;
+        }
+        .review-c {
+            width: 90%;
+        }
+        .nav-buttons {
+            flex-direction: column;
+        }
+    }
+
+    /* Tablet Styles */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .main {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .main1 {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .contentimg {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .imgcontent {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .t1, .t2, .t3 {
+            width: 45%;
+        }
+        .bb1, .bb2, .bb3 {
+            width: 30%;
+        }
+    }
+
+    /* Desktop Styles */
+    @media (min-width: 1025px) {
+        .main {
+            height: 70px;
+        }
+        .main1 {
+            padding: 20px;
+        }
+        .content {
+            max-width: 50%;
+        }
+        .imgcontent {
+            max-width: 100%;
+        }
+        .bb1, .bb2, .bb3 {
+            width: 30%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+        <div class="main">
+            <div class="a"><a class="a1">Enquire Now:</a></div>
+            <div class="b"><button class="b1">Hyd: &#128222; 1800 4120 1937</button></div>
+            <div class="c"><button class="c1">Pune: &#128222; 9951666671</button></div>
+            <div class="d"><button class="d1">Bengaluru: &#128222; 9951666672</button></div>
+        </div>
+    </nav>
+        <nav class="main1">
+            
+            <div><img src="images/b.webp" class="logo"></div>
+            <div><a class="home">Home</a></div>
+            <div class="dropdown">
+                <a class="course">Courses &#9662;</a>
+                <div class="dropdown-c">
+                    <!-- <div class="dropdown"> -->
+                    <a href="#">Data Science</a> 
+                    <!-- <div class="dropdown-c">
+                        <a href="#">Full Stack Web Development</a>
+                        <a href="#">Digital Marketing</a>
+                        <a href="#">Amazon Web Services(AWS)</a>
+
+                    </div> -->
+                    <!-- </div> -->
+                    <a href="#">Full Stack Web Development</a>
+                    <a href="#">Digital Marketing</a>
+                    <a href="#">Amazon Web Services(AWS)</a>
+                </div>
+            </div>
+            <div><a class="it">IT Scholars Program</a></div>
+            <div class="dropdown">
+                <a class="internship">Internship  &#9662;</a>
+                <div class="dropdown-c">
+                    <a href="#">Free Full Stack Internship</a>
+                    <a href="#">Free Generative AI Internship</a>
+                    <a href="#">Free Data Science Internship</a>
+                    <a href="#">Data Science Summer Internship</a>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <a class="about">About us  &#9662;</a>
+                <div class="dropdown-c">
+                    <a href="#">About us</a>
+                    <a href="#">Placements</a>
+                    <a href="#">Partner with us</a>
+                    <a href="#">Contact us</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Reviews</a>
+                    <a href="#">Gallery</a>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <a class="event">Events  &#9662;</a>
+                <div class="dropdown-c">
+                    <a href="#">5 Days Generative AI Bootcamp</a>
+                    <a href="#">Free Online Data Science Webinar</a>
+                    <a href="#">Campus Ambassador</a>
+                </div>
+            </div>
+            <div><button class="pay"> &#8377;  Pay Now</button></div>
+            
+        </nav>
+        <hr width="100%" size="6"  color="gainsboro">
+        <div class="slider">
+            <input type="radio" name="slider" id="slide1" checked>
+            <input type="radio" name="slider" id="slide2">
+            <input type="radio" name="slider" id="slide3">
+            <input type="radio" name="slider" id="slide4">
+            <input type="radio" name="slider" id="slide5">
+            <input type="radio" name="slider" id="slide6">
+            <input type="radio" name="slider" id="slide7">
+
+            <div class="slides" style="margin-bottom: 0px;">
+                <div class="slideimg"><img src="images/a.png" alt="Image1"></div>
+                <div class="slideimg"><img src="images/c.png" alt="Image3"></div>
+                <div class="slideimg"><img src="images/d.png" alt="Image4"></div>
+                <div class="slideimg"><img src="images/e.png" alt="Image5"></div>
+                <div class="slideimg"><img src="images/f.png" alt="Image6"></div>
+                <div class="slideimg"><img src="images/g.png" alt="Image7"></div>
+                <div class="slideimg"><img src="images/h.png" alt="Image8"></div>
+            </div>
+
+            <div class="nav-buttons">
+                <label class="nav-button" for="slide1"></label>
+                <label class="nav-button" for="slide2"></label>
+                <label class="nav-button" for="slide3"></label>
+                <label class="nav-button" for="slide4"></label>
+                <label class="nav-button" for="slide5"></label>
+                <label class="nav-button" for="slide6"></label>
+                <label class="nav-button" for="slide7"></label>
+            </div>
+        </div>
+    </header>
+    
+        <header>
+            <div class="contentimg">
+                <div class="content" style="margin-top: 0px;">
+                    <h1 class="train" style="font-weight: bolder;font-size: xx-large;"><br>We just don't train, </h1>
+                    <h1 style="font-weight: bolder;font-size: xx-large;">We transform the careers</h1>
+                    <p><super class="black">Innomatics Research Labs</super> is a pioneer in <super class="black"> "Transforming Careers and Lives"</super> of individuals in the Digital Space by catering training on <super class="red"> NASSCOM Future skills prime Certified Data Science</super> <super class="black">, Python , Predictive Analytics Modeler , Machine Learning , Aritificial Intelligence (AI) , Generative AI</super><super> Full-stack web development</super><super> and Career Launching program</super> for students who are willing to showcase their skills in the competitive job market with valuable credentials , and also can complete courses with a certificate.</p>
+                    <h3><super class="red">NASSCOM Futureskills Prime Registered Business Partner</super></h3>
+                    <p>As an authorized <super class="black">NASSCOM FutureSkills Prime Training Partner</super> dedicated to providing practical and real-world learning experiences. Our training includes case studies and business challenges to ensure job-ready skills. We also organize regular<super class="black"> hackathons,workshops,</super> and <super class="black">meetups</super> to enhance learning and productivity. With a dedicated placement team, we partner with over <super class="black">100 companies</super> to match them with skilled professionals, helping businesses grow while shaping successful careers.</p>
+                    <p class="red"> Best Edtech company</p>
+                    <p>Recognized by <super class="black">Times of India </super> as the Best Training Institute in Hyderabad for Data Science & Digital Marketing, we have trained and placed <super class="black"> 10,000+ </super> students. With <super class="black">350+ </super> batches,<super  class="black">70+ </super> hackathons , <super class="black"> 500+ </super> industry experts, <super class="black"> 500+ </super> webinars, and <super class="black"> 500+ </super> hiring partners , we focus on practical learning and skill development through advanced classrooms and modern training methods.</p>
+                    <br><button>View more</button>
+                </div>
+                <div class="imgcontent">
+                    <h1 class="wwa" style="font-weight: bold;font-size:xx-large;margin-top: 0px;">What we are?</h1>
+                    <div class="top">
+                        <div class="t1"><img src="images/laptop.png" class="symbol" style="width: 50%;display:flex;align-items: center;justify-content: center;"><p class="symhead">Global Leaders in training</p></div>
+                        <div class="t2"><img src="images/lap.jpg" class="symbol" style="width: 30%;"><p class="symhead">Practical oriented approach</p></div>
+                    </div>
+                    <div class="bottom">
+                        <div class="t3"><img src="images/sui.png" class="symbol"><p class="symhead">Hands-on projects & Internship</p></div>
+                        <div class="t2"><img src="images/ba.png" class="symbol"><p class="symhead">100% placement Assistance</p></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <footer class="bblack">
+        <br>
+        <h1 style="color: white;text-align: center;">Trending Courses of 2025</h1>
+        <br>
+        <div class="bblackdiv">
+        <div class="bb1">
+
+            <img src="images/1 (1).png" style="border-radius: 20px;" class="bimage">
+            <h1 style="color: white;">NASSCOM Futureskills Prime Certified Data Science</h1>
+            <p style="color: white;">This is a great choice for tech geeks, students, working professionals and aspiring data scientists who want to upskill and build a better foundation is the stream of Data Science.</p>
+            <button class="bbutton" style="color: white;">Read More</button>
+
+
+        </div>
+        <div class="bb2">
+            <img src="images/1 (2).png" style="border-radius: 20px;" class="bimage">
+            <h1 style="color: white;">Full Stack Development</h1>
+            <p style="color: white;">Learn the right skills to break into a development career & advance yourself as a full-stack Developer. It includes Frontend, Backend, databases, debugging & testing.</p>
+            <button class="bbutton" style="color: white;">Read More</button>
+        </div>
+        <div class="bb3">
+            <img src="images/1 (3).png" style="border-radius: 20px; " class="bimage">
+            <h1 style="color: white;">Generative AI</h1>
+            <p style="color: white;">Generative AI Course at Innomatics is perfect for students, job seekers, entrepreneurs, and professionals who want to learn the latest AI tools and skills to grow in their careers.</p>
+            <button  class="bbutton" style="color: white;">Read More</button>
+        </div>
+        </div>
+        <br>
+        <br>
+    </footer>
+    <footer>
+        <div class="Main">
+            
+            <div class="mainb">
+                <h1>Advantages of training at Innomatics</h1>
+                <div class="border">
+                    <ul>
+                        <li >Flexible Online Live and Classroom Training</li>
+                        <li>100% Internship guarantee program</li>
+                        <li>Dedicated Placement vertical</li>
+                        <li>Mastery level certifications that are globally accepted</li>
+                        <li>Backup Classes & Lifetime LMS access</li>
+                        <li>Completely Practical Oriented Approach</li>
+                        <li>Hands-on training on the capstone projects</li>
+                        <li>Bi-weekly connects from industry experts</li>
+                        <li>Domain Teach back and Reverse Presentations</li>
+                        <li>Free Technical Support & Individual Career Counselling</li>
+                        <li>Expert mentoring Weekly Tests & Assignments</li>
+                        <li>Mock-up Exams, and Interviews</li>
+                        <li>Meet-ups, Workshops, Hackathons & Conferences</li>
+                        <li>Exclusive programs for Non-IT professionals</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mainbb">
+                <h1>Let's Watch a Video Bite From Our Institute</h1>
+                <br>
+                <br>
+                
+                <iframe class="if" width="600" height="402" src="https://www.youtube.com/embed/OKUFrW40xyI" title="Find Out Why Innomatics Is The Best EdTech In India" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <button>Watch More Videos</button>
+            </div>
+        </div>
+        <footer style="background-color:rgba(237, 236, 236, 0.901);padding: 50px;">
+            <div>
+                <br>
+                <br>
+                <br>
+                <h1 style="text-align: center;">Why People Choose Our training</h1>
+                <div class="bib">
+                    <button style="background-color: red;
+                    color: white;
+                    border-radius: 30px;
+                    border:none;
+                    padding: 15px;
+                    margin-left: 20px;padding-right: 30px;
+                    padding-left: 30px;">EXPERT TRAINERS</button>
+                    <button>CAPSTONE PROJECTS</button>
+                    <BUTTON>INHOUSE INTERNSHIP</BUTTON>
+                    <button>PLACEMENTS</button>
+                </div>
+            </div>
+            <DIV class="small">
+                
+                <div>
+                    <img src="images/image.webp" style="width: 250px; padding: 20px;">
+
+                </div>
+                <div>
+                    <p style="padding-right: 40px;">Innomatics explored all over India to get the best trainers and succeeded with it. We have a pool of trainers working with highly qualified business partners and fortune companies to provide advanced and comprehensive training. </p>
+                    <p style="padding-right: 40px;">They curate the course content with an eye on the industry needs and standards to make students skilful and champions in solving the complex challenges of the industry.</p>
+
+                </div>
+            </DIV>
+        </footer>
+        <div class="expert">
+            <h1>Meet our experts</h1>
+            <button><span style="background-color: red; padding: 0px; display: inline-block;">
+                <svg width="15" height="15" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 15.5c-1.2 0-2.3-.2-3.3-.7-.5-.2-1.2-.1-1.5.3l-2.2 2.2c-3.3-1.7-6-4.4-7.7-7.7L7.5 7c.4-.4.5-1 .3-1.5-.5-1-1.2-2.1-1.3-3.3C6.3 1.1 6.1 1 5.8 1H3.5C2.7 1 2 1.7 2 2.5 2 14.1 9.9 22 21.5 22c.8 0 1.5-.7 1.5-1.5v-2.2c0-.4-.1-.6-.3-.8-.4-.1-1.1-.2-1.7-.2z"/>
+                </svg></span> <span style="color: white;">9951666670</span></button>
+        </div>
+    </footer>
+    <br>
+    <br>
+    <footer>
+        <h1 class="re">A few reviews from our Students</h1>
+        <div class="review-c">
+        <div id="review1" class="review">
+        <p>
+            <h1>Sindhuja</h1>
+            <h2>⭐️⭐️⭐️⭐️⭐️</h2>
+            I am incredibly grateful to my institute for the invaluable support they provided in my job search journey. The guidance and resources they offered were instrumental in helping me secure a job. I want to express my special thanks to our HR executive, Sai Kiran Rodda, whose assistance was pivotal. His dedication and expertise made the entire process seamless, enabling me to transition smoothly into my new role. I highly recommend this institute to anyone seeking not only quality education but also excellent career support. Thank you for making a significant difference in my life!
+
+
+        </p><br>
+        
+        </div>
+        <div id="review2" class="review">
+            <h1>Vamshi Raj</h1>
+            <h2>⭐️⭐️⭐️⭐️⭐️</h2>
+            <p>Innomatics Research Labs is the Best platform to transform our career, here I have done a Data analytics course, and was recently placed in a company.
+                Here they provides Excellent quality education and practice or doubt Sessions. and conducts so many Hackathons to enhance our skills. I personally like the LMS facility which is lifetime. Here we can see all our class recordings throughout the course.
+                Faculty and staff are so friendly. They will guide us until we get placed.
+                
+                </p>
+        </div>
+
+        <div id="review3" class="review">
+            <h1>Pramodha</h1>
+            <h2>⭐️⭐️⭐️⭐️⭐️</h2>
+            <p>
+                
+                I am incredibly grateful to my institute for the invaluable support they provided in my job search journey. The guidance and resources they offered were instrumental in helping me secure a job. I want to express my special thanks to our HR executive, Sai Kiran Rodda, whose assistance was pivotal. His dedication and expertise made the entire process seamless, enabling me to transition smoothly into my new role. I highly recommend this institute to anyone seeking not only quality education but also excellent career support. Thank you for making a significant difference in my life!
+                
+                </p>
+        </div>
+        <div class="nav-buttons">
+            <a href="#review1">1</a>
+            <a href="#review2">2</a>
+
+            
+            <a href="#review3">3</a>
+        </div>
+
+
+        </div>
+
+        <div class="bc">
+        <button class="reviewb">Read More</button></div>
+        <br>
+        <br>
+    </footer>
+    <footer class="color">
+        <br><br>
+        <h1 class="stories">Here Are Some Success Stories</h1><br><br>
+        <div class="container">
+        <div class="people">
+        <img src="images/a2.png" style="border: black 2px solid;">
+        <img src="images/a3.png" style="border: black 2px solid;">
+        <img src="images/a4.png" style="border: black 2px solid;">
+        <img src="images/a5.png" style="border: black 2px solid;">
+        <img src="images/a6.png" style="border: black 2px solid;">
+        <img src="images/a7.png" style="border: black 2px solid;">
+        <img src="images/a8.png" style="border: black 2px solid;">
+        <img src="images/a9.png" style="border: black 2px solid;">
+        </div>
+        <br>
+        <hr>
+        <br>
+        </div>
+        <br>
+        <br>        
+    </footer>
+    <footer>
+        <h1 class="blog">Read Latest Business News & Blog updates</h1>
+        <div class="news">
+        <div class="news1">
+            <img src="images/n1.png" style="align-items: center;justify-content: center;">
+            <h3 style="padding: 10px;">OOPS Concepts in Python: Part 1</h3>
+            <p style="padding: 10px;">Class , Objects , Constructor , Methods in Python....</p>
+        </div>
+        <div class="news2">
+            <img src="images/n2.png" style="align-items: center;justify-content: center;">
+            <h3 style="padding: 10px;text-wrap: wrap;">Real-World Applications of Data Science <br> in Today's Fast-paced Environment</h3>
+            <p style="padding: 10px;">Data Scienceis a field that has emerged as an... </p>
+        </div>
+        <div class="news3">
+            <img src="images/n3.png" style="align-items: center;justify-content: center;">
+            <h3 style="padding: 10px;">Why should you join Innomatics?</h3>
+            <p style="padding: 10px;">At Innomatics we believe in looking at the...</p>
+        </div>
+        </div>
+        <br>
+    </footer>
+    <div class="endmain">
+        <div class="end">
+            <img class="image" src="images/white.webp">
+            <p>A leading training institute, <super class="irl">Innomatics Research Labs</super> offers courses in areas such as NASSCOM Futureskills Prime Certified <super class="purple">Data Science</super>, Python, AI, Data Analytics, <super class="purple">Full Stack Development</super>, and <super class="purple">Generative AI</super>. Our practical training is designed meticulously to meet industry needs and provide valuable certification upon completion, empowering individuals to excel in their careers.</p>
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">
+                <img src="images/linkedin.png" alt="LinkedIn" width="30">
+            </a>
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">
+                <img src="images/facebook1.png" alt="FaceBook" width="30">
+            </a>
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">
+                <img src="images/insta.webp" alt="FaceBook" width="30">
+            </a>
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">
+                <img src="images/twit.png" alt="FaceBook" width="30">
+            </a>
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">
+                <img src="images/yt.png" alt="FaceBook" width="30">
+            </a>
+        </div>
+        <div class="end1">
+            <h1 style="color: red;">Courses</h1><br.<br><br>
+            <a>Data Science</a><br><br>
+            <a>Online Data Science</a><br><br>
+            <a>Advanced Generative AI</a><br><br>
+            <a>Full Stack Web Developer</a><br><br>
+            <a>Digital Marketing</a><br><br>
+            <a>Placements</a><br><br>
+            <a>Partner with us</a><br><br>
+            <a>Privacy Policy</a><br><br>
+        </div>
+        <div class="end2">
+            <h1 style="color: red;">Contact Us:</h1>
+            <p>&#128205;Kukatpally-Hyderabad<br>
+            <span style="color: gray;">#205, 2nd Floor, Fortune Signature, Near JNTU Metro Station, Kukatpally, Hyderabad, Telangana 500085 . <br> Call us : +91-9951666670</span></p>
+            <p>&#128205;Pune <br>
+            <span style="color: gray;">2nd Floor, Sai Sayaji Apartment, 201 Paud Rd, beside VANAZ Metro, above Bata showroom, Ramkrishna Paramhans Nagar, Kothrud, Pune, Maharashtra 411038 <br> Call us : +91-9951666671</span></p>
+            <p>&#128205;Bengaluru<br>
+            <span style="color: gray;">NO.576/B, 3rd FLOOR, Swetha Arcade, Service Road, 100 FT ROAD, 6TH SECTOR, Hsr Layout, Bengaluru, Karnataka 560068 <br>+91-9951666672</span></p>
+            <p> &#128222;Phone/Whatsapp:<br>
+            <span style="color: gray;">+91-9951666670 / +91-9951666671 </span><br><span style="color: gray;">
+                 +91-9951666672</span></p>
+            <p><super>&#x1F4E7;Email Us: </super><super style="color: gray;">Admissions@innomatics.in</super></p>
+        </div>
+    </div>
+    <footer class="theend">
+        <div>&copy;2024 Innomatics Research Labs  Pvt Ltd, All rights reserved.</div>
+    </footer>
+</body>
+</html>
+
+    
+
+</body>
+</html>
